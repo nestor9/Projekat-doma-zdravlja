@@ -36,7 +36,7 @@ public class Med_sestra extends Korisnik
 
 	@Override
 	public String toString() {
-		return "MEDICINSKA SESTRA \nPlata: " + plata +
+		return "MEDICINSKA SESTRA" + super.toString() + "\nPlata: " + plata +
 							"\nSluzba: " + sluzba;
 	}
 	

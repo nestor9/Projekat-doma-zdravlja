@@ -106,9 +106,9 @@ public class DomZdravlja {
 		this.pregledi.remove(pregled);
 	}
 	
-	public PregledPacijenta nadjiPregled(String korIme) {
+	public PregledPacijenta nadjiPregled(String brojPregleda) {
 		for (PregledPacijenta pregled : pregledi) {
-			if (pregled.getKor_Ime().equals(korIme)) {
+			if (pregled.getBr_pregleda().equals(brojPregleda)) {
 				return pregled;
 			}
 		}
@@ -317,7 +317,7 @@ public class DomZdravlja {
 		}
 	}
 	
-	/*public void ucitajPacijente(String imeFajla) {
+	public void ucitajPacijente(String imeFajla) {
 		try {
 			File file = new File("src/fajlovi/" + imeFajla);
 			BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -334,8 +334,8 @@ public class DomZdravlja {
 				String kor_ime = split[6];
 				String lozinka = split[7];
 				String uloga = split[8];
-				String izabrani_lekar = split[9];
-				String podaci_knjizice = split[10];
+				Lekar izabrani_lekar=new Lekar();
+				Zdrastvena_knjizica podaci_knjizice=new Zdrastvena_knjizica();
 				Pacijent pacijent = new Pacijent(ime, prezime, jmbg, pol, adresa, br_tel, kor_ime, lozinka, uloga, izabrani_lekar, podaci_knjizice);
 				pacijenti.add(pacijent);
 			}
@@ -344,7 +344,7 @@ public class DomZdravlja {
 			System.out.println("Greska prilikom snimanja podataka o pacijentu");
 			e.printStackTrace();
 		}
-	}*/
+	}
 	
 	public void ucitajKnjizice(String imeFajla) {
 		try {
@@ -367,18 +367,31 @@ public class DomZdravlja {
 		}
 	}
 	
-	/*public void ucitajPreglede(String imeFajla) {
+	public void ucitajPreglede(String imeFajla) {
 		try {
 			File file = new File("src/fajlovi/" + imeFajla);
 			BufferedReader reader = new BufferedReader(new FileReader(file));
 			String line;
 			while ((line = reader.readLine()) != null) {
 				String[] split = line.split("\\|");
-				String pacijent = split[0];
-				String lekar = split[1];
-				String kategorijaString = split[2];
-				int kategorija = Integer.parseInt(kategorijaString);
-				PregledPacijenta pregled = new PregledPacijenta(broj, datum, kategorija);
+				String br_pregleda = split[0];
+				String korImePacijenta = split[1];
+				String korImeLekara = split[2];
+				String termin = split[3];
+				String br_sobe = split[4];
+				String opis = split[5];
+				String statusPregleda = split[6];
+				Pacijent pregledPacijenta=new Pacijent();
+				Lekar pregledLekara=new Lekar();
+				for (Lekar lekar : lekari) {
+					if (korImeLekara.equals(lekar.getKor_Ime()))
+						pregledLekara=lekar;
+						}
+				for (Pacijent pacijent : pacijenti) {
+					if (korImePacijenta.equals(pacijent.getKor_Ime()))
+						pregledPacijenta=pacijent;
+						}
+				PregledPacijenta pregled = new PregledPacijenta(br_pregleda, pregledPacijenta, pregledLekara, termin, br_sobe, opis, statusPregleda);
 				pregledi.add(pregled);
 			}
 			reader.close();
@@ -386,6 +399,6 @@ public class DomZdravlja {
 			System.out.println("Greska prilikom snimanja podataka o pregledima pacijenata");
 			e.printStackTrace();
 		}
-	}*/
+	}
 	
 }

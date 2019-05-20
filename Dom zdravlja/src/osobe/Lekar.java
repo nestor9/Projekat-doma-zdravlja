@@ -47,7 +47,7 @@ public class Lekar extends Korisnik
 
 	@Override
 	public String toString() {
-		return "LEKAR \nPlata: " + plata +
+		return "LEKAR" + super.toString() + "\nPlata: " + plata +
 					  "\nSpecijalizacija: " + specijalizacija +
 					  "\nSluzba: " + sluzba;
 	}

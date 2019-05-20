@@ -1,59 +1,60 @@
 package pregledPacijenta;
 
-import java.util.*;
-
 import osobe.Lekar;
 import osobe.Pacijent;
 
-public class PregledPacijenta extends Lekar
+public class PregledPacijenta
 {
-	private ArrayList<Pacijent> pacijent;
-	private ArrayList<Lekar> doktor;
-	private Date termin;
+	private Pacijent pacijent;
+	private Lekar lekar;
+	private String br_pregleda;
+	private String termin;
 	private String br_sobe;
 	private String opis;
 	private String status_pregleda;  //treba enumeracija na StatusPregleda
 	
 	public PregledPacijenta() {
-		this.pacijent = new ArrayList<Pacijent>();
-		this.doktor = new ArrayList<Lekar>();
-		this.termin = new Date();
+		this.pacijent = new Pacijent();
+		this.lekar = new Lekar();
+		this.br_pregleda = "";
+		this.termin = "";
+		this.br_sobe = "";
+		this.opis = "";
+		this.status_pregleda = "";
 	}
 
-	public PregledPacijenta(String ime, String prezime, String jmbg, String pol, String adresa, String br_tel,
-			String kor_Ime, String lozinka, String uloga, double plata, String specijalizacija, String sluzba,
-			ArrayList<Pacijent> pacijent, ArrayList<Lekar> doktor, Date termin, String br_sobe, String opis,
-			String status_pregleda) {
-		super(ime, prezime, jmbg, pol, adresa, br_tel, kor_Ime, lozinka, uloga, plata, specijalizacija, sluzba);
+	public PregledPacijenta(Pacijent pacijent, Lekar lekar,String br_pregleda, String termin, String br_sobe, String opis, String status_pregleda) {
+		super();
 		this.pacijent = pacijent;
-		this.doktor = doktor;
+		this.lekar = lekar;
+		this.br_pregleda = br_pregleda;
 		this.termin = termin;
 		this.br_sobe = br_sobe;
 		this.opis = opis;
 		this.status_pregleda = status_pregleda;
 	}
 
-	public ArrayList<Pacijent> getPacijent() {
+	public Pacijent getPacijent() {
 		return pacijent;
 	}
 
-	public void setPacijent(ArrayList<Pacijent> pacijent) {
+	public void setPacijent(Pacijent pacijent) {
 		this.pacijent = pacijent;
 	}
 
-	public ArrayList<Lekar> getLekar() {
-		return doktor;
+	public Lekar getLekar() {
+		return lekar;
 	}
 
-	public void setLekar(ArrayList<Lekar> doktor) {
-		this.doktor = doktor;
+	public void setLekar(Lekar lekar) {
+		this.lekar = lekar;
 	}
 
-	public Date getTermin() {
+	public String getTermin() {
 		return termin;
 	}
 
-	public void setTermin(Date termin) {
+	public void setTermin(String termin) {
 		this.termin = termin;
 	}
 
@@ -80,19 +81,25 @@ public class PregledPacijenta extends Lekar
 	public void setStatus_pregleda(String status_pregleda) {
 		this.status_pregleda = status_pregleda;
 	}
+	
+	public String getBr_pregleda()
+	{
+		return br_pregleda;
+	}
+	public void setBr_pregleda(String br_pregleda)
+	{
+		this.br_pregleda = br_pregleda;
+	}
 
 	@Override
 	public String toString() {
-		String str = "PREGLED PACIJENTA " + super.toString() + 
-						"\nTermin: " + termin + 
-						"\nBroj sobe: " + br_sobe + 
-						"\nOpis: " + opis + 
-						"\nStatus Pregleda: " + status_pregleda;
-		for(Lekar lekar : doktor)
-		{
-			str +="\n" + lekar;
-		}
-		return str;
+		return "\nPacijent: " + pacijent
+				 + "\nLekar: " + lekar
+				 + "\nID: " + br_pregleda
+				 + "\nTermin: " + termin
+				 + "\nBroj sobe: " + br_sobe
+				 + "\nOpis: " + opis
+				 + "\nStatus: " + status_pregleda;
 	}
 	
 	
