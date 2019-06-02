@@ -1,1 +1,1 @@
-Petar|Petrovic|1403987065478|muskarac|Zelena 8|0605564881|Pera11|petar123|lekar|54000|opsti lekar|sluzba opste medicine
+Petar|Petrovic|1403987065478|muskarac|Zelena 8|0605564881|Pera11|petar123|lekar|54000.0|opsti lekar|sluzba opste medicine

@@ -1,1 +1,1 @@
-Marija|Maric|1803955088770|zensko|Karadjordja 11|0638877652|Marija8|marija123|medicinska sestra|34000|sluzba za tehnicke poslove
+Marija|Maric|1803955088770|zensko|Karadjordja 11|0638877652|Marija8|marija123|medicinska sestra|34000.0|sluzba za tehnicke poslove

@@ -9,10 +9,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 //import java.util.Date;
 
+import enumeracija.StatusPregleda;
+import enumeracija.TipOsobe;
 import osobe.Korisnik;
 import osobe.Lekar;
 import osobe.Med_sestra;
 import osobe.Pacijent;
+import osobe.Pol;
 import osobe.Zdrastvena_knjizica;
 import pregledPacijenta.PregledPacijenta;
 
@@ -266,8 +269,8 @@ public class DomZdravlja {
 				String ime = split[0];
 				String prezime = split[1];
 				String jmbg = split[2];
-				String pol = split[3];
-			//	boolean pol = Boolean.parseBoolean(polStrin);
+				int polInt = Integer.parseInt(split[3]);
+				TipOsobe pol = TipOsobe.fromInt(polInt);
 				String adresa = split[4];
 				String br_tel = split[5];
 				String kor_ime = split[6];
@@ -297,8 +300,8 @@ public class DomZdravlja {
 				String ime = split[0];
 				String prezime = split[1];
 				String jmbg = split[2];
-				String pol = split[3];
-			//	boolean pol = Boolean.parseBoolean(polStrin);
+				int polInt = Integer.parseInt(split[3]);
+				TipOsobe pol = TipOsobe.fromInt(polInt);
 				String adresa = split[4];
 				String br_tel = split[5];
 				String kor_ime = split[6];
@@ -327,8 +330,8 @@ public class DomZdravlja {
 				String ime = split[0];
 				String prezime = split[1];
 				String jmbg = split[2];
-				String pol = split[3];
-			//	boolean pol = Boolean.parseBoolean(polStrin);
+				int polInt = Integer.parseInt(split[3]);
+				TipOsobe pol = TipOsobe.fromInt(polInt);
 				String adresa = split[4];
 				String br_tel = split[5];
 				String kor_ime = split[6];
@@ -380,7 +383,7 @@ public class DomZdravlja {
 				String termin = split[3];
 				String br_sobe = split[4];
 				String opis = split[5];
-				String statusPregleda = split[6];
+				StatusPregleda status = StatusPregleda.ZAKAZAN;
 				Pacijent pregledPacijenta=new Pacijent();
 				Lekar pregledLekara=new Lekar();
 				for (Lekar lekar : lekari) {
@@ -391,7 +394,7 @@ public class DomZdravlja {
 					if (korImePacijenta.equals(pacijent.getKor_Ime()))
 						pregledPacijenta=pacijent;
 						}
-				PregledPacijenta pregled = new PregledPacijenta(br_pregleda, pregledPacijenta, pregledLekara, termin, br_sobe, opis, statusPregleda);
+				PregledPacijenta pregled = new PregledPacijenta(pregledPacijenta, pregledLekara, br_pregleda, termin, br_sobe, opis, status);
 				pregledi.add(pregled);
 			}
 			reader.close();

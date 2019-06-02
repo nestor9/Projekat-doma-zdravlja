@@ -1,12 +1,14 @@
 package osobe;
 
+import enumeracija.TipOsobe;
+
 public class Med_sestra extends Korisnik
 {
 	private double plata;
 	private String sluzba;
 	
-	public Med_sestra(String ime, String prezime, String jmbg, String pol, String adresa, String br_tel, String kor_Ime,
-			String lozinka, String uloga, int plata, String sluzba) {
+	public Med_sestra(String ime, String prezime, String jmbg, TipOsobe pol, String adresa, String br_tel, String kor_Ime,
+			String lozinka, String uloga, double plata, String sluzba) {
 		super(ime, prezime, jmbg, pol, adresa, br_tel, kor_Ime, lozinka, uloga);
 		this.plata = plata;
 		this.sluzba = sluzba;

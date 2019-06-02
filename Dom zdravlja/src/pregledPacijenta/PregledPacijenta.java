@@ -1,5 +1,6 @@
 package pregledPacijenta;
 
+import enumeracija.StatusPregleda;
 import osobe.Lekar;
 import osobe.Pacijent;
 
@@ -11,7 +12,7 @@ public class PregledPacijenta
 	private String termin;
 	private String br_sobe;
 	private String opis;
-	private String status_pregleda;  //treba enumeracija na StatusPregleda
+	private StatusPregleda status_pregleda;
 	
 	public PregledPacijenta() {
 		this.pacijent = new Pacijent();
@@ -20,10 +21,10 @@ public class PregledPacijenta
 		this.termin = "";
 		this.br_sobe = "";
 		this.opis = "";
-		this.status_pregleda = "";
+		this.status_pregleda = StatusPregleda.ZATRAZEN;
 	}
 
-	public PregledPacijenta(Pacijent pacijent, Lekar lekar,String br_pregleda, String termin, String br_sobe, String opis, String status_pregleda) {
+	public PregledPacijenta(Pacijent pacijent, Lekar lekar,String br_pregleda, String termin, String br_sobe, String opis, StatusPregleda status_pregleda) {
 		super();
 		this.pacijent = pacijent;
 		this.lekar = lekar;
@@ -49,7 +50,7 @@ public class PregledPacijenta
 	public void setLekar(Lekar lekar) {
 		this.lekar = lekar;
 	}
-
+	
 	public String getTermin() {
 		return termin;
 	}
@@ -74,11 +75,11 @@ public class PregledPacijenta
 		this.opis = opis;
 	}
 
-	public String getStatus_pregleda() {
+	public StatusPregleda getStatus_pregleda() {
 		return status_pregleda;
 	}
 
-	public void setStatus_pregleda(String status_pregleda) {
+	public void setStatus_pregleda(StatusPregleda status_pregleda) {
 		this.status_pregleda = status_pregleda;
 	}
 	

@@ -1,5 +1,6 @@
 package osobe;
 
+import enumeracija.TipOsobe;
 import osobe.Zdrastvena_knjizica;
 
 public class Pacijent extends Korisnik
@@ -8,7 +9,7 @@ public class Pacijent extends Korisnik
 	private Zdrastvena_knjizica podaci_knjizice;
 	
 	
-	public Pacijent(String ime, String prezime, String jmbg, String pol, String adresa, String br_tel, String kor_Ime,
+	public Pacijent(String ime, String prezime, String jmbg, TipOsobe pol, String adresa, String br_tel, String kor_Ime,
 			String lozinka, String uloga, Lekar izabrani_lekar, Zdrastvena_knjizica podaci_knjizice) {
 		super(ime, prezime, jmbg, pol, adresa, br_tel, kor_Ime, lozinka, uloga);
 		this.izabrani_lekar = izabrani_lekar;

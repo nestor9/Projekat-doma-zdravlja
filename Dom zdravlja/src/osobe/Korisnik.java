@@ -1,18 +1,20 @@
 package osobe;
 
+import enumeracija.TipOsobe;
+
 public abstract class Korisnik 
 {
 	protected String ime;
 	protected String prezime;
 	protected String jmbg;
-	protected String pol;
+	protected TipOsobe pol;
 	protected String adresa;
 	protected String br_tel;
 	protected String kor_Ime;
 	protected String lozinka;
 	protected String uloga;
 	
-	public Korisnik(String ime, String prezime, String jmbg, String pol, String adresa, String br_tel, String kor_Ime,
+	public Korisnik(String ime, String prezime, String jmbg, TipOsobe pol, String adresa, String br_tel, String kor_Ime,
 			String lozinka, String uloga) {
 		super();
 		this.ime = ime;
@@ -31,7 +33,7 @@ public abstract class Korisnik
 		this.ime = "";
 		this.prezime = "";
 		this.jmbg = "";
-		this.pol = "";
+		this.pol = TipOsobe.MUSKI;
 		this.adresa = "";
 		this.br_tel = "";
 		this.kor_Ime = "";
@@ -63,11 +65,11 @@ public abstract class Korisnik
 		this.jmbg = jmbg;
 	}
 
-	public String getPol() {
+	public TipOsobe getPol() {
 		return pol;
 	}
 
-	public void setPol(String pol) {
+	public void setPol(TipOsobe pol) {
 		this.pol = pol;
 	}
 
