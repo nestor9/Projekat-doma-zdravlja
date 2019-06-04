@@ -18,10 +18,7 @@ import osobe.Zdrastvena_knjizica;
 import pregledPacijenta.PregledPacijenta;
 
 public class Zdrastvo {
-	//private ArrayList<String> lista1 = new ArrayList<String>();
-	//private ArrayList<PregledPacijenta> preglediPacijenata = new ArrayList<PregledPacijenta>();
-//	private ArrayList<String> lista = new ArrayList<String>();
-//	private ArrayList<Pregled> preglediLekara = new ArrayList<Pregled>();
+	
 	private ArrayList<Med_sestra> med_sestre;
 	private ArrayList<Lekar> lekari;
 	private ArrayList<Pacijent> pacijenti;
@@ -118,10 +115,20 @@ public class Zdrastvo {
 		}
 	}
 	
-	public Korisnik login(String ime, String sifra) {
-		for (Korisnik korisnik : korisnici) {
-			if (korisnik.getIme().equalsIgnoreCase(ime) && korisnik.getLozinka().equals(sifra)) {
-				return korisnik;
+	public Korisnik login(String kor_ime, String sifra) {
+		for (Lekar lekar : lekari) {
+			if (lekar.getKor_Ime().equalsIgnoreCase(kor_ime) && lekar.getLozinka().equals(sifra)) {
+				return lekar;
+			}
+		}
+		for (Med_sestra sestra : med_sestre) {
+			if (sestra.getKor_Ime().equalsIgnoreCase(kor_ime) && sestra.getLozinka().equals(sifra)) {
+				return sestra;
+			}
+		}
+		for (Pacijent pacijent : pacijenti) {
+			if (pacijent.getKor_Ime().equalsIgnoreCase(kor_ime) && pacijent.getLozinka().equals(sifra)) {
+				return pacijent;
 			}
 		}
 		return null;
@@ -300,7 +307,7 @@ public class Zdrastvo {
 				String lozinka = split[7];
 				String uloga = split[8];
 				String plataString = split[9];
-				int plata = Integer.parseInt(plataString);
+				double plata = Double.parseDouble(plataString);
 				String sluzba = split[10];
 				Med_sestra sestra = new Med_sestra(ime, prezime, jmbg, pol, adresa, br_tel, kor_ime, lozinka, uloga, plata,  sluzba);
 				med_sestre.add(sestra);
@@ -336,9 +343,9 @@ public class Zdrastvo {
 			String line;
 			while ((line = reader.readLine()) != null) {
 				String[] split = line.split("\\|");
-				String br_pregleda = split[0];
-				String korImePacijenta = split[1];
-				String korImeLekara = split[2];
+				String br_pregleda = split[2];
+				String korImePacijenta = split[0];
+				String korImeLekara = split[1];
 				String termin = split[3];
 				String br_sobe = split[4];
 				String opis = split[5];

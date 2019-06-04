@@ -20,7 +20,10 @@ import osobe.Zdrastvena_knjizica;
 import pregledPacijenta.PregledPacijenta;
 
 public class DomZdravlja {
-	
+	//private ArrayList<String> lista1 = new ArrayList<String>();
+		//private ArrayList<PregledPacijenta> preglediPacijenata = new ArrayList<PregledPacijenta>();
+//		private ArrayList<String> lista = new ArrayList<String>();
+//		private ArrayList<Pregled> preglediLekara = new ArrayList<Pregled>();
 	private ArrayList<Lekar> lekari;
 	private ArrayList<Med_sestra> medicinskeSestre;
 	private ArrayList<Pacijent> pacijenti;

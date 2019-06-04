@@ -61,13 +61,13 @@ public class Glavni extends JFrame {
 	}
 	
 	private void initActions() {
-		/*pregledItem.addActionListener(new ActionListener() {
+		pregledItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PregledPrikaz pp = new PregledPrikaz(sistem);
 				pp.setVisible(true);
 			}
-		});*/
+		});
 		lekariItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -75,19 +75,19 @@ public class Glavni extends JFrame {
 				lpt.setVisible(true);
 			}
 		});
-		/*sestreItem.addActionListener(new ActionListener() {
+		sestreItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SestrePrikaz sp = new SestrePrikaz(sistem);
 				sp.setVisible(true);
 			}
-		});*/
-		/*pacijentiItem.addActionListener(new ActionListener() {
+		});
+		pacijentiItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PacijentiPrikaz pap = new PacijentiPrikaz(sistem);
 				pap.setVisible(true);
 			}
-		});*/
+		});
 	}
 }
