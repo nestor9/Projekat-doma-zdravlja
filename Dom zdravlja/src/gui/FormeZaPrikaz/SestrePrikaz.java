@@ -31,7 +31,7 @@ public class SestrePrikaz extends JFrame {
 	
 	public SestrePrikaz(Zdrastvo sistem) {
 		this.sistem = sistem;
-		setTitle("Lekari");
+		setTitle("Medicinske sestre");
 		setSize(800, 300);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -125,7 +125,7 @@ public class SestrePrikaz extends JFrame {
 						if(izbor == JOptionPane.YES_OPTION) {
 							sistem.getLekari().remove(sestra);
 							model.removeRow(red);
-							sistem.snimiLekare("lekari.txt");
+							sistem.snimiSestre("medicinskeSestre.txt");
 						}
 					}else {
 						JOptionPane.showMessageDialog(null, "Nije moguce pronaci odabranu medicinsku sestru!", "Greska", JOptionPane.ERROR_MESSAGE);

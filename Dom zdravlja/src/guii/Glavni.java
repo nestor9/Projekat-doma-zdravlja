@@ -9,6 +9,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import domZdravlja.Zdrastvo;
+import gui.FormeZaPrikaz.KnjizicaPrikaz;
 import gui.FormeZaPrikaz.LekarPrikaz;
 import gui.FormeZaPrikaz.PacijentiPrikaz;
 import gui.FormeZaPrikaz.PregledPrikaz;
@@ -24,6 +25,8 @@ public class Glavni extends JFrame {
 	private JMenuItem lekariItem;
 	private JMenuItem sestreItem;
 	private JMenuItem pacijentiItem;
+	private JMenu KnjizicaMenu;
+	private JMenuItem knjizicaItem;
 	
 	private Zdrastvo sistem;
 	private Korisnik korisnik;
@@ -48,14 +51,18 @@ public class Glavni extends JFrame {
 		this.lekariItem = new JMenuItem("Prikaži lekare");
 		this.sestreItem = new JMenuItem("Prikaži sestre");
 		this.pacijentiItem = new JMenuItem("Prikaži pacijente");
+		this.KnjizicaMenu = new JMenu("Knjizice");
+		this.knjizicaItem = new JMenuItem("Prikazi zdrastvene knjizice");
 		
 		this.PregledMenu.add(pregledItem);
 		this.korisniciMenu.add(lekariItem);
 		this.korisniciMenu.add(sestreItem);
 		this.korisniciMenu.add(pacijentiItem);
+		this.KnjizicaMenu.add(knjizicaItem);
 		
 		this.mainMenu.add(PregledMenu);
 		this.mainMenu.add(korisniciMenu);
+		this.mainMenu.add(KnjizicaMenu);
 		
 		setJMenuBar(this.mainMenu);
 	}
@@ -80,6 +87,13 @@ public class Glavni extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				SestrePrikaz sp = new SestrePrikaz(sistem);
 				sp.setVisible(true);
+			}
+		});
+		knjizicaItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				KnjizicaPrikaz kp = new KnjizicaPrikaz(sistem);
+				kp.setVisible(true);
 			}
 		});
 		pacijentiItem.addActionListener(new ActionListener() {

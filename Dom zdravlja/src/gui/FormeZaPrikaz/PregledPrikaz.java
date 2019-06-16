@@ -31,7 +31,7 @@ public class PregledPrikaz extends JFrame {
 	
 	public PregledPrikaz(Zdrastvo sistem) {
 		this.sistem = sistem;
-		setTitle("Lekari");
+		setTitle("Pregledi");
 		setSize(800, 300);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
